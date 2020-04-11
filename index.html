@@ -75,9 +75,6 @@
 </head>
 
 <body>
-    <div id="siteWelcome" class="site-welcome">
-        <div class="loading"></div>
-    </div>
     <div id="topNavBar" class="topNavBar">
         <div class="topNavBar-inner clearfix">
             <a href="#" alt="logo" class="logo" style="float:left">
@@ -114,7 +111,7 @@
     </div>
 
     <main>
-        <div id="siteAbout" class="card">
+        <div data-x id="siteAbout" class="card">
             <div class="pictureAndText clearfix">
                 <div class="picture">
                     <img src="./img/avatar.jpg" width="270" height="347" alt="头像">
@@ -128,7 +125,7 @@
                     <hr>
                     <dl>
                         <dt>年 龄</dt>
-                        <dd>27</dd>
+                        <dd>26</dd>
                         <dt>所 在 城 市</dt>
                         <dd>深 圳</dd>
                         <dt>邮 箱</dt>
@@ -162,7 +159,7 @@
         <p class="selfIntroduction">adadasdaacasasdaas</p>
     </main>
 
-    <section id="siteSkills" class="skills">
+    <section data-x id="siteSkills" class="skills">
         <h2>技 能</h2>
         <ol class="clearfix">
             <li>
@@ -204,7 +201,7 @@
         </ol>
     </section>
 
-    <section class="portfolio" id="siteWorks">
+    <section data-x class="portfolio" id="siteWorks">
         <h2>作 品 集</h2>
         <nav>
             <ol class="clearfix">
@@ -239,16 +236,40 @@
             </div>
         </div>
     </section>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tween.js/17.1.1/Tween.min.js"></script>
     <script>
-        setTimeout(function () {
-            siteWelcome.classList.remove('activve')
-        }, 1500)
+        //添加offset类
+        let specialTags = document.querySelectorAll('[data-x]')
+        for (let i = 0; i < specialTags.length; i++) {
+            specialTags[i].classList.add('offset')
+        }
+        findClosest()
         window.onscroll = function (x) {
             if (window.scrollY > 0) {
                 topNavBar.classList.add('sticky')
             } else {
                 topNavBar.classList.remove('sticky')
             }
+            findClosest()
+        }
+        function findClosest() {
+            let specialTags = document.querySelectorAll('[data-x]')
+            let minIndex = 0
+            for (let i = 1; i < specialTags.length; i++) {
+                if (Math.abs(specialTags[i].offsetTop - window.scrollY) < Math.abs(specialTags[minIndex].offsetTop - window.scrollY)) {
+                    minIndex = i
+                }
+            }
+            //minIndex就是离屏幕顶部最近的元素
+            specialTags[minIndex].classList.remove('offset')
+            let id = specialTags[minIndex].id
+            let a = document.querySelector('a[href="#' + id + '"]')
+            let li = a.parentNode
+            let brotherAndMe = li.parentNode.children
+            for (let i = 0; i < brotherAndMe.length; i++) {
+                brotherAndMe[i].classList.remove('highlight')
+            }
+            li.classList.add('highlight')
         }
         let liTags = document.querySelectorAll('nav.menu>ul>li')
         for (var i = 0; i < liTags.length; i++) {
@@ -259,7 +280,13 @@
                 x.currentTarget.classList.remove('active')
             }
         }
+
         let aTags = document.querySelectorAll('nav.menu>ul>li>a')
+        function animate(time) {
+            requestAnimationFrame(animate);
+            TWEEN.update(time);
+        }
+        requestAnimationFrame(animate);
         for (let i = 0; i < aTags.length; i++) {
             aTags[i].onclick = function (x) {
                 x.preventDefault()//阻止跳到锚点
@@ -267,7 +294,20 @@
                 let href = a.getAttribute('href') //'#siteAbout'
                 let element = document.querySelector(href)
                 let top = element.offsetTop
-                window.scrollTo(0, top-70)
+
+                let currentTop = window.scrollY
+                let targetTop = top - 70
+                let s = targetTop - currentTop //移动路程
+                var coords = { y: currentTop }; //起始位置
+                var t = Math.abs((s / 100) * 300) //时间
+                if (t > 500) { t = 500 }
+                var tween = new TWEEN.Tween(coords)
+                    .to({ y: targetTop }, t)
+                    .easing(TWEEN.Easing.Quadratic.InOut) //缓动类型
+                    .onUpdate(function () {
+                        window.scrollTo(0, coords.y)
+                    })
+                    .start();
             }
         }
     </script>

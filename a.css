@@ -27,10 +27,11 @@ h1, h2, h3, h4, h5, h6 {
     outline: 1px solid red;
 }
 
-[data-x].offset{
+[data-x].offset {
     transform: translateY(150px);
 }
-[data-x]{
+
+[data-x] {
     transform: translateY(0);
     transition: all 0.5s;
 }
@@ -314,7 +315,7 @@ body>main .downloadResume:hover {
 }
 
 .skills, .portfolio {
-    max-width: 940px;
+    max-width: 850px;
     margin-left: auto;
     margin-right: auto;
     margin-top: 60px;
@@ -367,7 +368,8 @@ body>main .downloadResume:hover {
     transform: translateX(0);
     transition: all 1s;
 }
-.skills.offset .progress{
+
+.skills.offset .progress {
     transform: translateX(-100%);
 }
 
@@ -376,57 +378,27 @@ body>main .downloadResume:hover {
     margin-bottom: 100px;
 }
 
-.portfolio nav {
-    text-align: center;
-    display: inline-block;
-    vertical-align: top;
-    margin-top: 32px;
+.portfolio h2 {
+    margin-bottom: 32px;
 }
 
-.portfolio nav ol {
-    margin: 0 auto;
-    display: inline-block;
-    vertical-align: top;
+.portfolio .swiper-container {
+    width: 700px;
+    height: 525px;
 }
-
-.portfolio nav ol li {
-    float: left;
-    margin-left: 40px;
-    cursor: pointer;
+.portfolio.swiper-button-prev{
+    right: 100%;
+    left: auto;
 }
-
-.portfolio nav ol li:first-child {
-    margin-left: 0;
+.portfolio.swiper-button-next{
+    left: 100%;
+    right: auto;
 }
-
-.portfolio nav .bar {
-    height: 5px;
-    background: white;
-    margin-top: 5px;
-    border-radius: 2px;
-    margin-bottom: 30px;
-}
-
 .bar-inner {
     height: 100%;
     background: #e6686a;
     border-radius: 2px;
     transition: all 0.3s;
-}
-
-.portfolio nav .bar.state-1 .bar-inner {
-    margin-left: 0;
-    width: 40px;
-}
-
-.portfolio nav .bar.state-2 .bar-inner {
-    margin-left: 70px;
-    width: 50px;
-}
-
-.portfolio nav .bar.state-3 .bar-inner {
-    margin-left: 150px;
-    width: 96px;
 }
 
 .portfolio .works {

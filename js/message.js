@@ -34,5 +34,6 @@ myForm.addEventListener('submit', function (e) {
         let messageList = document.querySelector('#messageList')
         messageList.appendChild(li)
         myForm.querySelector('input[name=content]').value = ''
+        myForm.querySelector('input[name=name]').value = ''
     })
 })

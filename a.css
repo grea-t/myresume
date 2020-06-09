@@ -329,7 +329,7 @@ body>main .downloadResume:hover {
     margin-top: 60px;
 }
 
-.skills>h2, .portfolio>h2 {
+.skills>h2, .portfolio>h2, .message>h2 {
     text-align: center;
     color: #3d4451;
     font-size: 34px;
@@ -418,4 +418,13 @@ body>main .downloadResume:hover {
 
 .portfolio .works>div {
     position: absolute;
+}
+.message>ol{
+    max-width: 700px;
+    margin: 0 auto;
+    border-top: 1px solid #ddd;
+}
+.message>ol>li{
+    padding: 16px;
+    border-bottom: 1px solid #ddd;
 }

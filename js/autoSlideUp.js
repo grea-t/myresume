@@ -4,7 +4,7 @@ for (let i = 0; i < specialTags.length; i++) {
     specialTags[i].classList.add('offset')
 }
 findClosestAndRemoveOffset()
-window.addEventListener('scroll', function (x) {
+window.addEventListener('scroll', function () {
     findClosestAndRemoveOffset()
 })
 
@@ -31,7 +31,7 @@ function findClosestAndRemoveOffset() {
     li.classList.add('highlight')
 }
 let liTags = document.querySelectorAll('nav.menu>ul>li')
-for (var i = 0; i < liTags.length; i++) {
+for (let i = 0; i < liTags.length; i++) {
     liTags[i].onmouseenter = function (x) {
         x.currentTarget.classList.add('active')
     }

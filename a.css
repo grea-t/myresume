@@ -1,430 +1,78 @@
-body {
-    background-color: #efefef;
-    margin: 0;
-}
-
-a {
-    color: inherit;
-    text-decoration: none;
-}
-
-* {
-    padding: 0;
-    margin: 0;
-}
-
-h1, h2, h3, h4, h5, h6 {
-    font-weight: normal;
-}
-
-.clearfix::after {
-    content: '';
-    display: block;
-    clear: both;
-}
-
-[data-x].active {
-    outline: 1px solid red;
-}
-
-[data-x].offset {
-    transform: translateY(150px);
-}
-
-[data-x] {
-    transform: translateY(0);
-    transition: all 0.5s;
-}
-
+body {background-color: #efefef;margin: 0;}
+a {color: inherit;text-decoration: none;}
+* {padding: 0;margin: 0;}
+h1, h2, h3, h4, h5, h6 {font-weight: normal;}
+.clearfix::after {content: '';display: block;clear: both;}
+[data-x].active {outline: 1px solid red;}
+[data-x].offset {transform: translateY(150px);}
+[data-x] {transform: translateY(0);transition: all 0.5s;}
 @keyframes slideUp {
-    0% {
-        transform: translateY(-30px);
-    }
-    100% {
-        transform: translateY(0);
-    }
+  0% {transform: translateY(-30px);}
+  100% {transform: translateY(0);}
 }
-
-.icon {
-    width: 1em;
-    height: 1em;
-    vertical-align: -0.15em;
-    fill: currentColor;
-    overflow: hidden;
-}
-
-.topNavBar {
-    padding: 15px 0 15px 0;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    transition: all 0.5s;
-    color: #B1B1B1;
-}
-
-.topNavBar.sticky {
-    background: white;
-    padding: 0;
-    z-index: 1;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    color: #3d4451;
-}
-
-.topNavBar-inner {
-    padding: 0 16px;
-}
-
-.topNavBar nav {
-    font-size: 13px;
-    padding-top: 8px;
-    padding-bottom: 8px;
-}
-
-.topNavBar nav>ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
-.topNavBar nav>ul>li {
-    float: left;
-    margin-left: 17px;
-    margin-right: 17px;
-    position: relative;
-}
-
-.topNavBar nav>ul>li>a {
-    color: inherit;
-    font-size: 12px;
-    font-weight: bold;
-    border-top: 3px solid transparent;
-    border-bottom: 3px solid transparent;
-    padding-bottom: 3px;
-    display: block;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    position: relative;
-}
-
-.topNavBar nav ul li.active a::after, .topNavBar nav ul li.highlight a::after {
-    content: '';
-    display: block;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    background: #e6686a;
-    height: 3px;
-    animation: menuSlide 0.3s;
-}
-
+.icon {width: 1em;height: 1em;vertical-align: -0.15em;fill: currentColor;overflow: hidden;}
+.topNavBar {padding: 15px 0 15px 0;position: fixed;top: 0;left: 0;width: 100%;transition: all 0.5s;color: #B1B1B1;}
+.topNavBar.sticky {background: white;padding: 0;z-index: 1;box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);color: #3d4451;}
+.topNavBar-inner {padding: 0 16px;}
+.topNavBar nav {font-size: 13px;padding-top: 8px;padding-bottom: 8px;}
+.topNavBar nav > ul {list-style: none;margin: 0;padding: 0;}
+.topNavBar nav > ul > li {float: left;margin-left: 17px;margin-right: 17px;position: relative;}
+.topNavBar nav > ul > li > a {color: inherit;font-size: 12px;font-weight: bold;border-top: 3px solid transparent;border-bottom: 3px solid transparent;display: block;padding-top: 5px;padding-bottom: 5px;position: relative;}
+.topNavBar nav ul li.active a::after, .topNavBar nav ul li.highlight a::after {content: '';display: block;position: absolute;top: 100%;left: 0;width: 100%;background: #e6686a;height: 3px;animation: menuSlide 0.3s;}
 @keyframes menuSlide {
-    0% {
-        width: 0;
-    }
-    100% {
-        width: 100%;
-    }
+  0% {width: 0;}
+  100% {width: 100%;}
 }
-
-.topNavBar .submenu {
-    display: none;
-    position: absolute;
-    right: 0;
-    top: 100%;
-    background: white;
-    color: #3d4451;
-    animation: submenuSlide 0.3s;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
-}
-
+.topNavBar .submenu {display: none;position: absolute;right: 0;top: 100%;background: white;color: #3d4451;animation: submenuSlide 0.3s;box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);}
 @keyframes submenuSlide {
-    0% {
-        margin-right: 100%;
-    }
-    100% {
-        margin-right: 0;
-    }
+  0% {margin-right: 100%;}
+  100% {margin-right: 0;}
 }
-
-.topNavBar li.active .submenu {
-    display: block;
-}
-
-.topNavBar .submenu>li {
-    white-space: nowrap;
-    padding: 5px 10px;
-}
-
-.logo {
-    font-size: 24px;
-    font-family: "Arial Black";
-    padding-top: 5px;
-}
-
-.logo .rs {
-    margin-right: 4px;
-    color: #e6686a;
-}
-
-.logo .cd {
-    color: #9a9da2;
-}
-
-.banner {
-    background-image: url(./img/bgimg1.jpg);
-    height: 515px;
-    background-position: center center;
-    background-size: cover;
-}
-
-.banner .mask {
-    height: 515px;
-    background-color: rgba(0, 0, 0, 0.5);
-}
-
-.card {
-    max-width: 940px;
-    margin-left: auto;
-    margin-right: auto;
-    background-color: #fff;
-    box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.5);
-}
-
-.card .welcome {
-    background-color: #e6686a;
-    color: white;
-    display: inline-block;
-    padding: 4px 16px;
-    line-height: 22px;
-    position: relative;
-    margin-bottom: 10px;
-}
-
-.welcome .triangle {
-    display: block;
-    border: 10px solid transparent;
-    width: 0;
-    border-left-color: #e6686a;
-    border-top-width: 0;
-    position: absolute;
-    left: 4px;
-    top: 100%;
-}
-
-.card .picture {
-    float: left;
-    margin-right: 65px;
-}
-
-.card .text {
-    float: left;
-    width: 490px;
-}
-
-.card .pictureAndText {
-    padding: 50px;
-}
-
-hr {
-    height: 0;
-    border: none;
-    border-top: 1px solid #dedede;
-}
-
-ul, ol {
-    list-style: none;
-}
-
-.text h1 {
-    margin-top: 25px;
-    margin-bottom: 5px;
-}
-
-.text hr {
-    margin: 20px 0;
-}
-
-.card dl dt, .card dl dd {
-    float: left;
-    padding: 5px 0;
-}
-
-.card dl dt {
-    width: 30%;
-    font-weight: bold;
-}
-
-.card dl dd {
-    width: 70%;
-    color: #AAA9AD;
-}
-
-.card>footer.media {
-    background-color: #e6686a;
-    text-align: center;
-}
-
-.card>footer.media>a {
-    display: inline-block;
-    border-radius: 50%;
-    width: 40px;
-    line-height: 30px;
-    padding: 5px 0;
-    margin: 14px;
-}
-
-.card>footer.media>a:hover {
-    background: #cf5d5f;
-}
-
-.card svg {
-    width: 30px;
-    height: 30px;
-    fill: white;
-    vertical-align: top;
-}
-
-body>main {
-    margin-top: -350px;
-}
-
-body>main .downloadResume {
-    font-size: 14px;
-    line-height: 16px;
-    padding: 21px 55px;
-    display: inline-block;
-    background: #efefef;
-    border: 1px solid #cdcfd1;
-    border-radius: 2px;
-    color: #3d4451;
-    font-weight: bold;
-    margin: 32px 0;
-    transition: box-shadow 0.3s;
-}
-
-.download {
-    text-align: center;
-}
-
-body>main .downloadResume:hover {
-    box-shadow: 0 4px 13px 0 rgba(0, 0, 0, 0.3);
-}
-
-.selfIntroduction {
-    max-width: 940px;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
-    font-family: kai;
-    line-height: 1.8;
-    font-size: 18px;
-}
-
-.skills, .portfolio {
-    max-width: 850px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 60px;
-}
-
-.skills>h2, .portfolio>h2, .message>h2 {
-    text-align: center;
-    color: #3d4451;
-    font-size: 34px;
-    line-height: 1.2;
-    font-weight: 600px;
-}
-
-.skills>h3 {
-    font-size: 14px;
-    line-height: 1.1;
-    padding-right: 40px;
-}
-
-.skills>ol {
-    background: white;
-    box-shadow: 0 4px 13px 0 rgba(117, 79, 79, 0.4);
-    padding: 42px 50px 10px;
-    margin-top: 30px;
-}
-
-.skills>ol>li {
-    float: left;
-    width: 48%;
-    box-sizing: border-box;
-}
-
-.skills>ol>li:nth-child(even) {
-    float: right;
-}
-
-.skills .progressBar {
-    height: 5px;
-    background: #fae1e1;
-    border-radius: 2px;
-    margin: 4px 0 40px;
-    overflow: hidden;
-}
-
-.skills .progressBar .progress {
-    height: 100%;
-    width: 70%;
-    background: #E6686A;
-    border-radius: 2px;
-    transform: translateX(0);
-    transition: all 1s;
-}
-
-.skills.offset .progress {
-    transform: translateX(-100%);
-}
-
-.portfolio {
-    text-align: center;
-    margin-bottom: 100px;
-}
-
-.portfolio h2 {
-    margin-bottom: 32px;
-}
-
-.portfolio .swiper-container {
-    width: 700px;
-    height: 525px;
-}
-
-.portfolio.swiper-button-prev {
-    right: 100%;
-    left: auto;
-}
-
-.portfolio.swiper-button-next {
-    left: 100%;
-    right: auto;
-}
-
-.bar-inner {
-    height: 100%;
-    background: #e6686a;
-    border-radius: 2px;
-    transition: all 0.3s;
-}
-
-.portfolio .works {
-    position: relative;
-}
-
-.portfolio .works>div {
-    position: absolute;
-}
-.message>ol{
-    max-width: 700px;
-    margin: 0 auto;
-    border-top: 1px solid #ddd;
-}
-.message>ol>li{
-    padding: 16px;
-    border-bottom: 1px solid #ddd;
-}
+.topNavBar li.active .submenu {display: block;}
+.topNavBar .submenu > li {white-space: nowrap;padding: 5px 10px;}
+.logo {font-size: 24px;font-family: "Arial Black", serif;padding-top: 5px;}
+.logo .rs {margin-right: 4px;color: #e6686a;}
+.logo .cd {color: #9a9da2;}
+.banner {background-image: url(./img/bgimg1.jpg);height: 515px;background-position: center center;background-size: cover;}
+.banner .mask {height: 515px;background-color: rgba(0, 0, 0, 0.5);}
+.card {max-width: 940px;margin-left: auto;margin-right: auto;background-color: #fff;box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.5);}
+.card .welcome {background-color: #e6686a;color: white;display: inline-block;padding: 4px 16px;line-height: 22px;position: relative;margin-bottom: 10px;}
+.welcome .triangle {display: block;border: 10px solid transparent;width: 0;border-left-color: #e6686a;border-top-width: 0;position: absolute;left: 4px;top: 100%;}
+.card .picture {float: left;margin-right: 65px;}
+.card .text {float: left;width: 490px;}
+.card .pictureAndText {padding: 50px;}
+hr {height: 0;border: none;border-top: 1px solid #dedede;}
+ul, ol {list-style: none;}
+.text h1 {margin-top: 25px;margin-bottom: 5px;}
+.text hr {margin: 20px 0;}
+.card dl dt, .card dl dd {float: left;padding: 5px 0;}
+.card dl dt {width: 30%;font-weight: bold;}
+.card dl dd {width: 70%;color: #AAA9AD;}
+.card > footer.media {background-color: #e6686a;text-align: center;}
+.card > footer.media > a {display: inline-block;border-radius: 50%;width: 40px;line-height: 30px;padding: 5px 0;margin: 14px;}
+.card > footer.media > a:hover {background: #cf5d5f;}
+.card svg {width: 30px;height: 30px;fill: white;vertical-align: top;}
+body > main {margin-top: -350px;}
+body > main .downloadResume {font-size: 14px;line-height: 16px;padding: 21px 55px;display: inline-block;background: #efefef;border: 1px solid #cdcfd1;border-radius: 2px;color: #3d4451;font-weight: bold;margin: 32px 0;transition: box-shadow 0.3s;}
+.download {text-align: center;}
+body > main .downloadResume:hover {box-shadow: 0 4px 13px 0 rgba(0, 0, 0, 0.3);}
+.selfIntroduction {max-width: 940px;margin-left: auto;margin-right: auto;text-align: center;font-family: kai, serif;line-height: 1.8;font-size: 18px;}
+.skills, .portfolio {max-width: 850px;margin-left: auto;margin-right: auto;margin-top: 60px;}
+.skills > h2, .portfolio > h2, .message > h2 {text-align: center;color: #3d4451;font-size: 34px;line-height: 1.2;font-weight: 600px;}
+.skills > h3 {font-size: 14px;line-height: 1.1;padding-right: 40px;}
+.skills > ol {background: white;box-shadow: 0 4px 13px 0 rgba(117, 79, 79, 0.4);padding: 42px 50px 10px;margin-top: 30px;}
+.skills > ol > li {float: left;width: 48%;box-sizing: border-box;}
+.skills > ol > li:nth-child(even) {float: right;}
+.skills .progressBar {height: 5px;background: #fae1e1;border-radius: 2px;margin: 4px 0 40px;overflow: hidden;}
+.skills .progressBar .progress {height: 100%;width: 70%;background: #E6686A;border-radius: 2px;transform: translateX(0);transition: all 1s;}
+.skills.offset .progress {transform: translateX(-100%);}
+.portfolio {text-align: center;margin-bottom: 100px;}
+.portfolio h2 {margin-bottom: 32px;}
+.portfolio .swiper-container {width: 700px;height: 525px;}
+.portfolio.swiper-button-prev {right: 100%;left: auto;}
+.portfolio.swiper-button-next {left: 100%;right: auto;}
+.bar-inner {height: 100%;background: #e6686a;border-radius: 2px;transition: all 0.3s;}
+.portfolio .works {position: relative;}
+.portfolio .works > div {position: absolute;}
+.message > ol {max-width: 700px;margin: 0 auto;border-top: 1px solid #ddd;}
+.message > ol > li {padding: 16px;border-bottom: 1px solid #ddd;}
